@@ -1,8 +1,7 @@
 package org.ptt.spring;
 
+import org.ptt.spring.config.PropertyConfig;
 import org.ptt.spring.config.SpringBeanConfig;
-import org.ptt.spring.service.NotificationService;
-import org.ptt.spring.service.UselessBean;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
@@ -66,6 +65,7 @@ public class Main {
         }
         */
 
+        /*
         NotificationService notificationService = context.getBean(NotificationService.class);
         UselessBean uselessBean = notificationService.getUselessBean();
 
@@ -77,7 +77,12 @@ public class Main {
         } else {
             log.info("Different instance");
         }
+         */
 
+        PropertyConfig propertyConfig = context.getBean(PropertyConfig.class);
+        log.info(propertyConfig.getUrl());
+        log.info(propertyConfig.getUsername());
+        log.info(propertyConfig.getPassword());
 
         log.info("Started application");
     }
