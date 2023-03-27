@@ -1,6 +1,7 @@
 package org.ptt.spring;
 
 import org.ptt.spring.config.PropertyConfig;
+import org.ptt.spring.config.PropertyEnvironmentConfig;
 import org.ptt.spring.config.SpringBeanConfig;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
@@ -79,10 +80,17 @@ public class Main {
         }
          */
 
+        /*
         PropertyConfig propertyConfig = context.getBean(PropertyConfig.class);
         log.info(propertyConfig.getUrl());
         log.info(propertyConfig.getUsername());
         log.info(propertyConfig.getPassword());
+         */
+
+        PropertyEnvironmentConfig propertyEnvironmentConfig = context.getBean(PropertyEnvironmentConfig.class);
+        log.info(propertyEnvironmentConfig.getUrl());
+        log.info(propertyEnvironmentConfig.getUsername());
+        log.info(propertyEnvironmentConfig.getPassword());
 
         log.info("Started application");
     }
