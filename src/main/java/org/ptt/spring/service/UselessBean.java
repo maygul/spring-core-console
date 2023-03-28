@@ -9,4 +9,8 @@ import org.springframework.stereotype.Component;
 @Scope("prototype")
 public class UselessBean {
     private String name;
+
+    public void uselessMethod() {
+        System.out.println("Useless method");
+    }
 }

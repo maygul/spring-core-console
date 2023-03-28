@@ -14,4 +14,8 @@ public class TwitterNotifier implements Notifier {
     public void notify(String message) {
         log.info("TwitterNotifier: " + message);
     }
+
+    public void aopNotifyExample(String anotherMessage) {
+        log.info("TwitterNotifier-aopNotifyExample: " + anotherMessage);
+    }
 }

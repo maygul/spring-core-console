@@ -1,8 +1,8 @@
 package org.ptt.spring;
 
-import org.ptt.spring.config.PropertyConfig;
-import org.ptt.spring.config.PropertyEnvironmentConfig;
 import org.ptt.spring.config.SpringBeanConfig;
+import org.ptt.spring.service.UselessBean;
+import org.ptt.spring.service.impl.TwitterNotifier;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
@@ -86,11 +86,13 @@ public class Main {
         log.info(propertyConfig.getUsername());
         log.info(propertyConfig.getPassword());
          */
-
-        PropertyEnvironmentConfig propertyEnvironmentConfig = context.getBean(PropertyEnvironmentConfig.class);
-        log.info(propertyEnvironmentConfig.getUrl());
-        log.info(propertyEnvironmentConfig.getUsername());
-        log.info(propertyEnvironmentConfig.getPassword());
+        /*
+        TwitterNotifier twitterNotifier = context.getBean(TwitterNotifier.class);
+        twitterNotifier.notify("Hello World! Do you hear me!");
+        twitterNotifier.aopNotifyExample("not null message");
+*/
+        UselessBean uselessBean = context.getBean(UselessBean.class);
+        uselessBean.uselessMethod();
 
         log.info("Started application");
     }
