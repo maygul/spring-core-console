@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 
+import java.sql.SQLException;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertNotNull;
@@ -37,5 +38,16 @@ public class StudentServiceTest {
         List<Student> searchResult = studentService.search(pageNumber, pageCount, criteria);
 
         assertNotNull(searchResult);
+    }
+
+    @Test
+    void givenStudent_thenSaveAndDeleteSuccessfully() throws SQLException {
+        Student student = Student.builder()
+                .name("updated Student_1____")
+                .surname("updated Surname_1+_____")
+                .build();
+
+        studentService.saveAndDelete(student);
+
     }
 }

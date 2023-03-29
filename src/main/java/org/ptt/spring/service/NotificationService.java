@@ -5,10 +5,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
+import org.springframework.stereotype.Service;
 
 import java.util.logging.Logger;
 
-
+@Service
 public class NotificationService implements ApplicationContextAware {
     private ApplicationContext context;
     private Logger log = Logger.getLogger(NotificationService.class.getName());

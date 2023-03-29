@@ -90,10 +90,10 @@ public class Main {
         TwitterNotifier twitterNotifier = context.getBean(TwitterNotifier.class);
         twitterNotifier.notify("Hello World! Do you hear me!");
         twitterNotifier.aopNotifyExample("not null message");
-*/
+*//*
         UselessBean uselessBean = context.getBean(UselessBean.class);
         uselessBean.uselessMethod();
-
+*/
         log.info("Started application");
     }
 }
