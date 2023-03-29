@@ -105,4 +105,22 @@ public class StudentRepositoryTest {
 
         assertNotNull(studentList);
     }
+
+    @Test
+    void givenStudentId_thenRetrieveStudentsSuccessfully() {
+        Long studentId = 1L;
+
+        Student student = studentRepository.findById(studentId).orElse(null);
+
+        assertNotNull(student);
+    }
+
+    @Test
+    void givenStudentId_thenRetrieveStudentWithLessonsSuccessfully() {
+        Long studentId = 1L;
+
+        Student student = studentRepository.findStudentWithCustomQuery(studentId);
+
+        assertNotNull(student);
+    }
 }
