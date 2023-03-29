@@ -87,4 +87,22 @@ public class StudentRepositoryTest {
 
         assertNotNull(studentList);
     }
+
+    @Test
+    void givenStudentSurname_thenRetrieveRecordsWithNativeQuery() {
+        String surname = "Surname_1";
+
+        List<Student> studentList = studentRepository.findAllBySurnameNative(surname);
+
+        assertNotNull(studentList);
+    }
+
+    @Test
+    void givenStudentName_thenRetrieveRecordsWithNativeSecondaryQuery() {
+        String surname = "Surname_1";
+
+        List<Student> studentList = studentRepository.findAllBySurnameNativeSecondQuery(surname);
+
+        assertNotNull(studentList);
+    }
 }
