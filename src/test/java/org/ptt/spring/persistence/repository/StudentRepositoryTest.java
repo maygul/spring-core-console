@@ -121,6 +121,6 @@ public class StudentRepositoryTest {
 
         Student student = studentRepository.findStudentWithCustomQuery(studentId);
 
-        assertNotNull(student);
+        assertNotNull(student.getLessons());
     }
 }

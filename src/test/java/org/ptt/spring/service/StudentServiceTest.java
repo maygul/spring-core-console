@@ -32,7 +32,7 @@ public class StudentServiceTest {
         Integer pageNumber = 0;
         Integer pageCount = 2;
 
-        StudentSearchCriteria criteria = new StudentSearchCriteria("Student_1", "Surname_1");
+        StudentSearchCriteria criteria = new StudentSearchCriteria(null, "Surname_1");
 
         List<Student> searchResult = studentService.search(pageNumber, pageCount, criteria);
 

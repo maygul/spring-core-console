@@ -1,6 +1,5 @@
 package org.ptt.spring.persistence.entity;
 
-import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -27,6 +26,5 @@ public class Student {
     private String surname;
 
     @OneToMany(mappedBy = "student", fetch = FetchType.LAZY)
-    @JsonManagedReference
     private List<Lesson> lessons;
 }

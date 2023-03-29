@@ -7,6 +7,7 @@ import org.springframework.data.jpa.domain.Specification;
 import javax.persistence.criteria.Predicate;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 
 public class StudentSpecification {
     public static Specification<Student> findByCriteria(StudentSearchCriteria criteria) {
@@ -14,13 +15,13 @@ public class StudentSpecification {
 
             List<Predicate> predicateList = new ArrayList<>();
 
-            if (criteria.getName() != null || !criteria.getName().isBlank()) {
+            if (criteria.getName() != null && !criteria.getName().isBlank()) {
                 Predicate namePredicate = cb.equal(root.get("name"), criteria.getName());
                 predicateList.add(namePredicate);
             }
 
-            if (criteria.getSurname() != null || !criteria.getSurname().isBlank()) {
-                Predicate surnamePredicate = cb.equal(root.get("surname"), criteria.getSurname());
+            if (criteria.getSurname() != null && !criteria.getSurname().isBlank()) {
+                Predicate surnamePredicate = cb.equal(cb.lower(root.get("surname")), criteria.getSurname().toLowerCase());
                 predicateList.add(surnamePredicate);
             }
 

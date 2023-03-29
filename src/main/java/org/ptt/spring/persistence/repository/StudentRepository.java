@@ -27,7 +27,6 @@ public interface StudentRepository extends JpaRepository<Student, Long>, JpaSpec
     @EntityGraph(attributePaths = {"lessons"})
     Optional<Student> findById(Long id);
 
-    @Query("SELECT s,l FROM Student s JOIN FETCH Lesson l ON s.id = l.student.id WHERE s.id = :id")
+    @Query("SELECT s FROM Student s LEFT JOIN FETCH s.lessons WHERE s.id = :id")
     Student findStudentWithCustomQuery(@Param("id") Long id);
-
 }
